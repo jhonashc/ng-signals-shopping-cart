@@ -47,7 +47,7 @@ export class CartService {
   changeQuantity(cartItemId: number, quantity: number): void {
     const cartItems: CartItem[] = this.cartItems();
 
-    const cartItemIndex: number = this.cartItems().findIndex(
+    const cartItemIndex: number = cartItems.findIndex(
       (item) => item.id === cartItemId
     );
 
