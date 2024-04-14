@@ -1,0 +1,57 @@
+<section class="w-full h-full">
+  <div class="relative">
+    <img
+      [ngSrc]="product.image"
+      [alt]="product.title"
+      width="600"
+      height="900"
+      priority
+    />
+
+    <div class="absolute top-0 right-0 mr-2 mt-2">
+      <button type="button">
+        <svg
+          class="w-6 h-6 text-gray-900"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 12h14m-7 7V5"
+          />
+        </svg>
+      </button>
+
+      <button type="button">
+        <svg
+          class="w-6 h-6 text-gray-900"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 12h14"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <h1 class="text-lg">{{ product.title }}</h1>
+
+  <span class="font-bold">{{ product.price | currency }}</span>
+</section>
