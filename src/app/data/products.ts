@@ -1,4 +1,4 @@
-import { Product } from '../interfaces/product.interface';
+import { Product } from '../interfaces';
 
 export const products: Product[] = [
   {
@@ -24,5 +24,17 @@ export const products: Product[] = [
     title: 'Camisa resort en muselina Regular Fit',
     price: 31.99,
     image: '/assets/images/image-4.webp',
+  },
+  {
+    id: 5,
+    title: 'Sudadera con capucha y estampado Loose Fit',
+    price: 35.99,
+    image: '/assets/images/image-5.webp',
+  },
+  {
+    id: 6,
+    title: 'Joggers cargo de nailon Skinny Fit',
+    price: 49.99,
+    image: '/assets/images/image-6.webp',
   },
 ];
