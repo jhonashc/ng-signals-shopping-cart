@@ -67,6 +67,12 @@ export class CartService {
     }));
   }
 
+  clearCart(): void {
+    this.state.update(() => ({
+      items: [],
+    }));
+  }
+
   checkProductInCart(productId: number): boolean {
     return this.cartItems().some((cartItem) => cartItem.id === productId);
   }
