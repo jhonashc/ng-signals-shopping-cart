@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { Product } from '../../interfaces/product.interface';
+import { Product } from '../../interfaces';
 
 import { ProductItemComponent } from '../product-item/product-item.component';
 

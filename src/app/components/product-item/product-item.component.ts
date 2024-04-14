@@ -1,7 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { CurrencyPipe, NgOptimizedImage } from '@angular/common';
 
-import { Product } from '../../interfaces/product.interface';
+import { Product } from '../../interfaces';
+
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product-item',
@@ -13,6 +15,8 @@ import { Product } from '../../interfaces/product.interface';
 export class ProductItemComponent implements OnInit {
   @Input({ required: true })
   public product!: Product;
+
+  public cartService = inject(CartService);
 
   ngOnInit(): void {
     if (!this.product) {

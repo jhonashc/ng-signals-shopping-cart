@@ -1,1 +1,109 @@
-<p>shopping-cart works!</p>
+<div class="flex flex-col gap-4">
+  <a class="flex items-center gap-1 mb-2" routerLink="/"
+    ><svg
+      class="w-5 h-5"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="m15 19-7-7 7-7"
+      />
+    </svg>
+    <span class="font-bold text-lg">Back</span></a
+  >
+
+  @for (cartItem of cartService.cartItems(); track cartItem.id) {
+  <div class="flex items-center gap-4">
+    <img
+      [ngSrc]="cartItem.image"
+      [alt]="cartItem.title"
+      width="600"
+      height="900"
+      class="w-28"
+      priority
+    />
+
+    <div class="flex-1">
+      <h1 class="text-xl">{{ cartItem.title }}</h1>
+      <span class="font-bold">{{ cartItem.price | currency }}</span>
+    </div>
+
+    <div class="flex items-center gap-4 border-2 rounded-md border-gray-600">
+      <button class="p-2" (click)="cartService.changeQuantity(cartItem.id, -1)">
+        <svg
+          class="w-6 h-6 text-gray-900"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 12h14"
+          />
+        </svg>
+      </button>
+      <span class="text-xl">{{ cartItem.quantity }}</span>
+      <button class="p-2" (click)="cartService.changeQuantity(cartItem.id, +1)">
+        <svg
+          class="w-6 h-6 text-gray-900"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 12h14m-7 7V5"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <button class="p-4" (click)="cartService.removeItem(cartItem.id)">
+      <svg
+        class="w-6 h-6"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"
+        />
+      </svg>
+    </button>
+  </div>
+  }
+
+  <hr class="mt-3" />
+
+  <div class="flex items-center justify-between">
+    <span class="text-xl font-bold">Total</span>
+    <span class="text-xl">{{ cartService.totalPrice() | currency }}</span>
+  </div>
+</div>
