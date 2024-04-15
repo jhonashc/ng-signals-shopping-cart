@@ -48,7 +48,7 @@ export class CartService {
     const cartItems: CartItem[] = this.cartItems();
 
     const cartItemIndex: number = cartItems.findIndex(
-      (item) => item.id === cartItemId
+      (cartItem) => cartItem.id === cartItemId
     );
 
     if (cartItemIndex === -1) return;
@@ -60,7 +60,7 @@ export class CartService {
         quantity: cartItems[cartItemIndex].quantity + quantity,
       },
       ...cartItems.slice(cartItemIndex + 1),
-    ].filter((item) => item.quantity > 0);
+    ].filter((cartItem) => cartItem.quantity > 0);
 
     this.state.update(() => ({
       items: newCartItems,
@@ -91,9 +91,9 @@ export class CartService {
 
     if (!cartItems) return;
 
-    this.state.update(() => ({
+    this.state.set({
       items: JSON.parse(cartItems),
-    }));
+    });
   }
 
   mapToCartItem(product: Product): CartItem {
