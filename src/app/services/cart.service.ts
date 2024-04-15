@@ -68,9 +68,9 @@ export class CartService {
   }
 
   clearCart(): void {
-    this.state.update(() => ({
+    this.state.set({
       items: [],
-    }));
+    });
   }
 
   checkProductInCart(productId: number): boolean {
